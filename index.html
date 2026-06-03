@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel App MVP - Registro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-simulator">
+        <div class="status-bar">
+            <span>9:41</span>
+            <div class="icons">
+                <span class="icon">📶</span>
+                <span class="icon">🔋</span>
+            </div>
+        </div>
+        <div class="app-content">
+            <div class="header">
+                <!-- Fallback to text if logo.png is missing to ensure MVP still looks okay -->
+                <img src="logo.png" alt="Triplet Logo" class="logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+                <h1 id="logo-fallback" class="logo-text" style="display: none;">Triplet</h1>
+            </div>
+            
+            <div class="form-container" id="register-container">
+                <h2>Crea tu cuenta</h2>
+                <p class="subtitle">Comienza tu próxima aventura</p>
+                
+                <form id="register-form">
+                    <div class="input-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" placeholder="Tu nombre completo" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Correo</label>
+                        <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Confirmar</button>
+                </form>
+
+                <div class="divider">
+                    <span>O regístrate con</span>
+                </div>
+
+                <div class="social-buttons">
+                    <button class="btn-social google" type="button">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+                              <path fill="#4285F4" d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"/>
+                              <path fill="#34A853" d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"/>
+                              <path fill="#FBBC05" d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z"/>
+                              <path fill="#EA4335" d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z"/>
+                            </g>
+                        </svg>
+                        Usar correo de Google
+                    </button>
+                    <button class="btn-social apple" type="button">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.641-.026 2.62-1.473 3.612-2.923 1.156-1.685 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.546 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.68.727-1.303 2.145-1.108 3.531 1.35.104 2.548-.507 3.395-1.519z"/>
+                        </svg>
+                        Usar Apple
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-container" id="login-container" style="display: none;">
+                <h2>Iniciar sesión</h2>
+                <p class="subtitle">Bienvenido de vuelta</p>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="login-email">Correo</label>
+                        <input type="email" id="login-email" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Iniciar sesión</button>
+                </form>
+
+                <div class="divider">
+                    <span>O entra con</span>
+                </div>
+
+                <div class="social-buttons">
+                    <button class="btn-social google" type="button">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+                              <path fill="#4285F4" d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"/>
+                              <path fill="#34A853" d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"/>
+                              <path fill="#FBBC05" d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z"/>
+                              <path fill="#EA4335" d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z"/>
+                            </g>
+                        </svg>
+                        Usar correo de Google
+                    </button>
+                    <button class="btn-social apple" type="button">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.641-.026 2.62-1.473 3.612-2.923 1.156-1.685 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.546 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.68.727-1.303 2.145-1.108 3.531 1.35.104 2.548-.507 3.395-1.519z"/>
+                        </svg>
+                        Usar Apple
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-container" id="profile-container" style="display: none;">
+                <h2>Queremos conocerte</h2>
+                <p class="subtitle">Formulario para darte un itinerario personalizado.</p>
+                
+                <form id="profile-form">
+                    <div class="input-group">
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad" placeholder="Tu edad" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="discapacidad">Discapacidad</label>
+                        <select id="discapacidad" required>
+                            <option value="Ninguna">Ninguna</option>
+                            <option value="Movilidad">Movilidad reducida</option>
+                            <option value="Visual">Visual</option>
+                            <option value="Auditiva">Auditiva</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mascotas">¿Viajas con mascotas?</label>
+                        <select id="mascotas" required>
+                            <option value="">Selecciona</option>
+                            <option value="Si">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="experiencia">Experiencia de viajes</label>
+                        <select id="experiencia" required>
+                            <option value="">Nivel de experiencia</option>
+                            <option value="Principiante">Principiante (1-2 viajes)</option>
+                            <option value="Intermedio">Intermedio (3-5 viajes)</option>
+                            <option value="Experto">Experto (+5 viajes)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="tipos_viajes">Tipos de viajes preferidos</label>
+                        <select id="tipos_viajes" required>
+                            <option value="">Tu estilo favorito</option>
+                            <option value="Aventura">Aventura y Naturaleza</option>
+                            <option value="Relax">Relax y Playa</option>
+                            <option value="Cultural">Cultural e Histórico</option>
+                            <option value="Negocios">Negocios</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="clima">Clima preferido</label>
+                        <select id="clima" required>
+                            <option value="">Selecciona</option>
+                            <option value="Calido">Cálido</option>
+                            <option value="Templado">Templado</option>
+                            <option value="Frio">Frío</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="comodidad">Nivel de comodidad</label>
+                        <select id="comodidad" required>
+                            <option value="">Selecciona</option>
+                            <option value="Economico">Económico (Mochilero)</option>
+                            <option value="Estandar">Estándar</option>
+                            <option value="Lujo">Lujo (Premium)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mas_info">Más</label>
+                        <textarea id="mas_info" rows="3" placeholder="Cuéntanos cualquier otro detalle..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Continuar</button>
+                    
+                    <p style="text-align: center; font-size: 0.75rem; color: #777; margin-top: 15px;">
+                        * Se usa IA para mayor personalización.
+                    </p>
+                </form>
+            </div>
+
+            <div id="home-container" style="display: none; padding-bottom: 20px;">
+                <div class="search-bar" id="home-search-bar" style="cursor: pointer;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #777;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" placeholder="Dónde deseas viajar" readonly style="cursor: pointer;">
+                </div>
+
+                <div class="user-row">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#D11A2A" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <button class="add-user-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+
+                <div class="input-group">
+                    <input type="date" class="calendar-input" required>
+                </div>
+
+                <h3 class="section-title">Recomendaciones</h3>
+                
+                <div class="places-list">
+                    <!-- Place 1 -->
+                    <div class="place-card">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=150&q=80" alt="Bali" class="place-image">
+                        <div class="place-info">
+                            <h4>Bali, Indonesia</h4>
+                            <p>Playas paradisíacas y templos históricos para relajarte.</p>
+                        </div>
+                        <button class="view-btn">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+
+                    <!-- Place 2 -->
+                    <div class="place-card">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=150&q=80" alt="Paris" class="place-image">
+                        <div class="place-info">
+                            <h4>París, Francia</h4>
+                            <p>La ciudad del amor, ideal para una experiencia inolvidable.</p>
+                        </div>
+                        <button class="view-btn">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Triplet Logo" onerror="this.style.display='none'; document.getElementById('footer-fallback').style.display='block';">
+                    <h2 id="footer-fallback" style="display: none; color: var(--primary-red); font-size: 1.5rem; text-align: center;">Triplet</h2>
+                </div>
+            </div>
+
+            <div id="search-results-container" style="display: none; padding-bottom: 20px;">
+                <div class="search-bar">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #777;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" value="Cartagena" readonly>
+                </div>
+
+                <div class="input-group">
+                    <input type="date" class="calendar-input" required>
+                </div>
+
+                <button class="btn-primary" style="margin-bottom: 25px;">Planificar tu propio viaje</button>
+
+                <h3 class="section-title">Nuestras ofertas</h3>
+                
+                <div class="places-list">
+                    <!-- Itinerary 1 -->
+                    <div class="place-card itinerary-card">
+                        <img src="https://images.unsplash.com/photo-1583315264359-548cb45bc116?auto=format&fit=crop&w=150&q=80" alt="Cartagena" class="place-image">
+                        <div class="place-info">
+                            <h4>Ciudad Amurallada</h4>
+                            <p><strong>Hotel:</strong> Santa Clara</p>
+                            <p><strong>Incluye:</strong> Tour histórico, paseo en bote, cenas y más.</p>
+                            <p class="itinerary-price">$850 USD</p>
+                        </div>
+                        <button class="view-btn" id="btn-ver-mas-cartagena">Ver más</button>
+                    </div>
+
+                    <!-- Itinerary 2 -->
+                    <div class="place-card itinerary-card">
+                        <img src="https://images.unsplash.com/photo-1542617631-0df0b893da01?auto=format&fit=crop&w=150&q=80" alt="Islas del Rosario" class="place-image">
+                        <div class="place-info">
+                            <h4>Islas del Rosario</h4>
+                            <p><strong>Hotel:</strong> Isla del Encanto</p>
+                            <p><strong>Incluye:</strong> Snorkel, masajes, cócteles y más.</p>
+                            <p class="itinerary-price">$1,200 USD</p>
+                        </div>
+                        <button class="view-btn">Ver más</button>
+                    </div>
+                </div>
+
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Triplet Logo" onerror="this.style.display='none'; document.getElementById('footer-fallback-2').style.display='block';">
+                    <h2 id="footer-fallback-2" style="display: none; color: var(--primary-red); font-size: 1.5rem; text-align: center;">Triplet</h2>
+                </div>
+            </div>
+
+            <div id="details-container" style="display: none; padding-bottom: 20px;">
+                <h3 class="section-title">Detalles del Viaje</h3>
+                
+                <div class="input-group" style="display: flex; gap: 10px;">
+                    <div style="flex: 1;">
+                        <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; display: block;">Inicio</label>
+                        <input type="date" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); font-family: inherit;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; display: block;">Fin</label>
+                        <input type="date" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); font-family: inherit;">
+                    </div>
+                </div>
+
+                <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; display: block;">Acompañantes</label>
+                <div class="user-row" style="margin-bottom: 25px;">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#D11A2A" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <button class="add-user-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+
+                <div class="details-section">
+                    <h4 style="margin-bottom: 10px;">Opciones de Alojamiento</h4>
+                    <div class="place-card itinerary-card" style="margin-bottom: 15px;">
+                        <div class="place-info">
+                            <h4>Hotel Santa Clara</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light);">Calle del Torno 39-29, Cartagena</p>
+                            <p class="itinerary-price">$350 USD / noche</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%;">+</button>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h4 style="margin-bottom: 10px;">Servicios</h4>
+                    <div style="background: #fbfbfb; padding: 12px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--border-color);">
+                        <strong style="display: block; margin-bottom: 4px;">Desayuno Buffet</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Incluye opciones locales e internacionales.</p>
+                        <hr style="border: none; border-top: 1px solid var(--border-color); margin: 10px 0;">
+                        <strong style="display: block; margin-bottom: 4px;">Traslados</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Aeropuerto - Hotel - Aeropuerto.</p>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h4 style="margin-bottom: 10px;">Destinos (Itinerario)</h4>
+                    <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-dark); line-height: 1.5; margin-bottom: 15px;">
+                        <li><strong>Día 1:</strong> Tour histórico por la Ciudad Amurallada.</li>
+                        <li><strong>Día 2:</strong> Tarde libre en Castillo San Felipe.</li>
+                        <li><strong>Día 3:</strong> Paseo en bote por la bahía.</li>
+                    </ul>
+                    <button class="btn-social" style="width: auto; padding: 8px 16px; display: inline-block; font-size: 0.85rem;">Modificar</button>
+                </div>
+
+                <div class="details-section" style="margin-top: 25px;">
+                    <h4 style="margin-bottom: 10px;">Opciones de transporte</h4>
+                    <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px;">
+                        <button class="transport-btn" id="btn-vuelos">Vuelos</button>
+                        <button class="transport-btn">Transporte Público</button>
+                        <button class="transport-btn" id="btn-propio-medio">Mi propio medio</button>
+                    </div>
+                </div>
+
+                <div class="input-group" style="margin-top: 25px;">
+                    <label for="cambios">Cambios</label>
+                    <textarea id="cambios" rows="3" placeholder="Digita lo que te gustaría cambiar..." style="width: 100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 12px; font-family: inherit; font-size: 1rem; resize: vertical; min-height: 80px;"></textarea>
+                </div>
+
+                <button class="btn-primary" id="btn-aceptar-detalles" style="margin-top: 10px;">Aceptar</button>
+
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Triplet Logo" onerror="this.style.display='none'; document.getElementById('footer-fallback-3').style.display='block';">
+                    <h2 id="footer-fallback-3" style="display: none; color: var(--primary-red); font-size: 1.5rem; text-align: center;">Triplet</h2>
+                </div>
+            </div>
+
+            <div id="parking-container" style="display: none; padding-bottom: 20px;">
+                <h3 class="section-title">Opciones de parqueadero</h3>
+                
+                <div class="details-section">
+                    <h4 style="margin-bottom: 10px; color: var(--primary-red);">Carro</h4>
+                    <div class="place-card itinerary-card" style="margin-bottom: 10px;">
+                        <div class="place-info">
+                            <h4>Parqueadero Centro Histórico</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light);">Calle de la Moneda, Cartagena</p>
+                            <p class="itinerary-price">$15 USD / día</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%;">+</button>
+                    </div>
+                    <div class="place-card itinerary-card" style="margin-bottom: 15px;">
+                        <div class="place-info">
+                            <h4>Parking San Diego</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light);">Plaza San Diego, Cartagena</p>
+                            <p class="itinerary-price">$12 USD / día</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%;">+</button>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h4 style="margin-bottom: 10px; color: var(--primary-red);">Moto/Cicla</h4>
+                    <div class="place-card itinerary-card" style="margin-bottom: 10px;">
+                        <div class="place-info">
+                            <h4>MotoPark Amurallada</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light);">Calle del Torno, Cartagena</p>
+                            <p class="itinerary-price">$5 USD / día</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%;">+</button>
+                    </div>
+                    <div class="place-card itinerary-card" style="margin-bottom: 25px;">
+                        <div class="place-info">
+                            <h4>Parqueadero 2 Ruedas</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light);">Av. Venezuela, Cartagena</p>
+                            <p class="itinerary-price">$4 USD / día</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.2rem; width: 40px; height: 40px; border-radius: 50%;">+</button>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" id="btn-regresar-parking" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border-color); background: var(--white); color: var(--text-dark); margin-top: 20px;">Regresar</button>
+            </div>
+
+            <div id="flights-container" style="display: none; padding-bottom: 20px;">
+                <h3 class="section-title">Opciones de vuelo</h3>
+                
+                <div class="details-section">
+                    <h4 style="margin-bottom: 10px; color: var(--text-dark);">Nuestras sugerencias</h4>
+                    <div class="place-card itinerary-card" style="margin-bottom: 10px;">
+                        <div class="place-info">
+                            <h4>Vuelo temprano recomendado</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-light);">Llegada antes del mediodía para aprovechar mejor el día.</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.1rem; width: 38px; height: 38px; border-radius: 50%;">+</button>
+                    </div>
+                    <div class="place-card itinerary-card" style="margin-bottom: 10px;">
+                        <div class="place-info">
+                            <h4>Vuelo directo</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-light);">Menor tiempo de viaje y menos riesgo de retrasos.</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.1rem; width: 38px; height: 38px; border-radius: 50%;">+</button>
+                    </div>
+                    <div class="place-card itinerary-card" style="margin-bottom: 20px;">
+                        <div class="place-info">
+                            <h4>Tarifa flexible</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-light);">Incluye equipaje y cambios con menor penalización.</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.1rem; width: 38px; height: 38px; border-radius: 50%;">+</button>
+                    </div>
+
+                    <h4 style="margin-bottom: 10px; color: var(--text-dark);">Opciones existentes</h4>
+
+                    <div class="place-card itinerary-card" style="margin-bottom: 10px;">
+                        <div class="place-info">
+                            <h4>Ida y vuelta - Opción 1</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 4px;"><strong>Ida:</strong> 10:00 AM BOG - CTG</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light);"><strong>Vuelta:</strong> 04:30 PM CTG - BOG</p>
+                            <p class="itinerary-price" style="margin-top: 8px;">$120 USD</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.1rem; width: 38px; height: 38px; border-radius: 50%;">+</button>
+                    </div>
+                    <div class="place-card itinerary-card" style="margin-bottom: 10px;">
+                        <div class="place-info">
+                            <h4>Ida y vuelta - Opción 2</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 4px;"><strong>Ida:</strong> 06:00 AM BOG - CTG</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light);"><strong>Vuelta:</strong> 09:00 PM CTG - BOG</p>
+                            <p class="itinerary-price" style="margin-top: 8px;">$95 USD</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.1rem; width: 38px; height: 38px; border-radius: 50%;">+</button>
+                    </div>
+                    <div class="place-card itinerary-card" style="margin-bottom: 20px;">
+                        <div class="place-info">
+                            <h4>Ida y vuelta - Opción 3</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 4px;"><strong>Ida:</strong> 01:30 PM BOG - CTG</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light);"><strong>Vuelta:</strong> 07:15 PM CTG - BOG</p>
+                            <p class="itinerary-price" style="margin-top: 8px;">$110 USD</p>
+                        </div>
+                        <button class="view-btn" style="font-size: 1.1rem; width: 38px; height: 38px; border-radius: 50%;">+</button>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" id="btn-regresar-vuelos" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 1.05rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border-color); background: var(--white); color: var(--text-dark); margin-top: 20px;">Regresar</button>
+
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Triplet Logo" onerror="this.style.display='none'; document.getElementById('footer-fallback-4').style.display='block';">
+                    <h2 id="footer-fallback-4" style="display: none; color: var(--primary-red); font-size: 1.5rem; text-align: center;">Triplet</h2>
+                </div>
+            </div>
+
+            <!-- Pantalla de Confirmación de Pago y Gastos -->
+            <div id="payment-container" style="display: none; padding-bottom: 20px;">
+                <div class="header" style="margin-top: 10px; margin-bottom: 20px;">
+                    <img src="logo.png" alt="Triplet Logo" class="logo" onerror="this.style.display='none'; document.getElementById('payment-logo-fallback').style.display='block';">
+                    <h1 id="payment-logo-fallback" class="logo-text" style="display: none;">Triplet</h1>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <button id="btn-confirmar-pago" class="btn-primary" style="margin-top: 0; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.1rem; padding: 18px; border-radius: 16px; box-shadow: 0 8px 16px rgba(209, 26, 42, 0.25);">
+                        <span>Confirmar Pago</span>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </button>
+                </div>
+
+                <div class="details-section" style="margin-bottom: 25px;">
+                    <h4 style="margin-bottom: 12px; border-left: 4px solid var(--primary-red); padding-left: 10px;">Gastos</h4>
+                    
+                    <div class="expense-list">
+                        <div class="expense-item">
+                            <div class="expense-info">
+                                <span class="expense-name">Alojamiento (Hotel Santa Clara)</span>
+                                <span class="expense-details">3 noches x $350 USD</span>
+                            </div>
+                            <span class="expense-amount">$1,050 USD</span>
+                        </div>
+
+                        <div class="expense-item">
+                            <div class="expense-info">
+                                <span class="expense-name">Vuelo Ida y Vuelta</span>
+                                <span class="expense-details">BOG - CTG - BOG</span>
+                            </div>
+                            <span class="expense-amount">$120 USD</span>
+                        </div>
+
+                        <div class="expense-item">
+                            <div class="expense-info">
+                                <span class="expense-name">Servicios Incluidos</span>
+                                <span class="expense-details">Desayuno buffet + Traslados</span>
+                            </div>
+                            <span class="expense-amount">$80 USD</span>
+                        </div>
+
+                        <div class="expense-item">
+                            <div class="expense-info">
+                                <span class="expense-name">Impuestos y Tasas</span>
+                                <span class="expense-details">IVA y cargos del servicio</span>
+                            </div>
+                            <span class="expense-amount">$50 USD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-box">
+                    <span class="total-label">Total a Pagar</span>
+                    <span class="total-amount">$1,300 USD</span>
+                </div>
+
+                <div style="margin-top: 15px; margin-bottom: 20px;">
+                    <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; display: block; color: var(--text-dark);">Forma de Pago</label>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div class="payment-method-card active">
+                            <input type="radio" name="payment_method" id="pay-card" checked>
+                            <label for="pay-card">💳 Tarjeta de Crédito / Débito</label>
+                        </div>
+                        <div class="payment-method-card">
+                            <input type="radio" name="payment_method" id="pay-pse">
+                            <label for="pay-pse">🏦 Transferencia Bancaria (PSE)</label>
+                        </div>
+                        <div class="payment-method-card">
+                            <input type="radio" name="payment_method" id="pay-paypal">
+                            <label for="pay-paypal">🅿️ PayPal / Google Pay</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pantalla de Registro y Seguimiento de Viaje (Trip Log / Tracker) -->
+            <div id="trip-log-container" style="display: none; padding-bottom: 20px;">
+                <!-- Logo arriba -->
+                <div class="header" style="margin-top: 10px; margin-bottom: 20px;">
+                    <img src="logo.png" alt="Triplet Logo" class="logo" onerror="this.style.display='none'; document.getElementById('log-logo-fallback').style.display='block';">
+                    <h1 id="log-logo-fallback" class="logo-text" style="display: none;">Triplet</h1>
+                </div>
+
+                <!-- Información de tu viaje -->
+                <div class="details-section" style="margin-bottom: 20px;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); font-weight: 700;">Información de tu viaje</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;">Detalles generales del viaje actual</p>
+                    
+                    <!-- Lista de información general -->
+                    <div class="info-list" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="info-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fafafa; border-radius: 8px; border-left: 3px solid var(--primary-red);">
+                            <span style="font-size: 1.2rem;">📍</span>
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-light); display: block; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Destino</span>
+                                <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">Ciudad Amurallada, Cartagena</span>
+                            </div>
+                        </div>
+                        <div class="info-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fafafa; border-radius: 8px; border-left: 3px solid var(--primary-red);">
+                            <span style="font-size: 1.2rem;">📅</span>
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-light); display: block; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Fechas</span>
+                                <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">28 May - 31 May, 2026</span>
+                            </div>
+                        </div>
+                        <div class="info-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fafafa; border-radius: 8px; border-left: 3px solid var(--primary-red);">
+                            <span style="font-size: 1.2rem;">🏨</span>
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-light); display: block; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Alojamiento</span>
+                                <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">Hotel Santa Clara (Calle del Torno)</span>
+                            </div>
+                        </div>
+                        <div class="info-item" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fafafa; border-radius: 8px; border-left: 3px solid var(--primary-red);">
+                            <span style="font-size: 1.2rem;">✈️</span>
+                            <div>
+                                <span style="font-size: 0.75rem; color: var(--text-light); display: block; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Transporte</span>
+                                <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">Vuelo Ida y Vuelta (BOG - CTG)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen de gastos -->
+                <div class="details-section" style="margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--text-dark);">Resumen de gastos</h4>
+                    <div style="background: #fff5f5; border: 1px solid rgba(209,26,42,0.1); padding: 14px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-weight: 700; color: var(--text-dark); display: block; font-size: 0.95rem;">Total Pagado</span>
+                            <span id="log-payment-method-desc" style="font-size: 0.8rem; color: var(--text-light);">Tarjeta de Crédito</span>
+                        </div>
+                        <span style="font-size: 1.25rem; font-weight: 800; color: var(--primary-red);">$1,300 USD</span>
+                    </div>
+                </div>
+
+                <!-- Cuadro de texto donde aparesca deseas agregar algo mas -->
+                <div class="input-group" style="margin-bottom: 20px;">
+                    <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; display: block; color: var(--text-dark);">¿Deseas agregar algo más?</label>
+                    <textarea id="trip-notes" rows="3" placeholder="Anota lugares que descubras, restaurantes o notas importantes de tu viaje..." style="width: 100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 12px; font-family: inherit; font-size: 0.95rem; resize: none; min-height: 80px; transition: all 0.3s;"></textarea>
+                </div>
+
+                <!-- Recordatorios con una lista de recordatorios -->
+                <div class="details-section" style="margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 12px; border-left: 4px solid var(--primary-red); padding-left: 10px; color: var(--text-dark);">Recordatorios</h4>
+                    
+                    <div class="reminders-list" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="reminder-item">
+                            <input type="checkbox" id="rem-checkin">
+                            <label for="rem-checkin">Realizar Check-in del vuelo de regreso</label>
+                        </div>
+                        <div class="reminder-item">
+                            <input type="checkbox" id="rem-sunscreen">
+                            <label for="rem-sunscreen">Comprar bloqueador solar biodegradable</label>
+                        </div>
+                        <div class="reminder-item">
+                            <input type="checkbox" id="rem-tour">
+                            <label for="rem-tour">Presentarse al Tour histórico en Ciudad Amurallada (Día 1, 9:00 AM)</label>
+                        </div>
+                        <div class="reminder-item">
+                            <input type="checkbox" id="rem-checkout">
+                            <label for="rem-checkout">Hacer Check-out en Hotel Santa Clara</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-bar"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
